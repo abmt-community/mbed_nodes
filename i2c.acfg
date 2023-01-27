@@ -1,0 +1,6 @@
+{
+  "model": "i2c",
+  "runtime": "mbed",
+  "runtime_configs": {
+  }
+}

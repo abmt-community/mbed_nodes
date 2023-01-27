@@ -1,0 +1,48 @@
+{
+  "model_is_node": false,
+  "nodes": [
+    {
+      "name": "LED",
+      "type": "class",
+      "cfg": {
+        "class": "gpio_output",
+        "prj": "mbed_nodes",
+        "pin": "LED1"
+      },
+      "pos": {
+        "x": -123,
+        "y": -133
+      },
+      "rotate": false,
+      "comment_out": false,
+      "inputs": {
+        "in": {
+          "node": "counter",
+          "pin": "out"
+        }
+      },
+      "default_values": {
+        "in": ""
+      }
+    },
+    {
+      "name": "counter",
+      "type": "class",
+      "cfg": {
+        "class": "counter",
+        "prj": "math",
+        "start": "0",
+        "end": "1",
+        "step": "1",
+        "auto_restart": true
+      },
+      "pos": {
+        "x": -529,
+        "y": -120
+      },
+      "rotate": false,
+      "comment_out": false,
+      "raster": "1s"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "list",
+  "elements": [
+    {
+      "type": "display",
+      "display_name": true,
+      "num_digets": "3",
+      "signal": "counter.out",
+      "width": 1517,
+      "height": 25
+    }
+  ],
+  "width": 1517,
+  "height": 852
+}

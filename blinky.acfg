@@ -1,0 +1,20 @@
+{
+  "model": "blinky",
+  "runtime": "mbed",
+  "runtime_configs": {
+    "mbed": {
+      "target": "BLUE_PILL",
+      "toolchain_path": "/opt/gcc-arm-none-eabi-latest/bin",
+      "flash_command": "st-flash --reset --flash=128k write BUILD/$TARGET/GCC_ARM/*.bin 0x8000000",
+      "dl_mbed": "https://api.github.com/repos/ARMmbed/mbed-os/tarball/mbed-os-6.16.0",
+      "usb_device_num": "0",
+      "raster_stack_size": "768",
+      "serial_port": "/dev/ttyACM0",
+      "serial_baudrate": "500000",
+      "use_usb": true,
+      "serial_pin_tx": "CONSOLE_TX",
+      "serial_pin_rx": "CONSOLE_RX",
+      "skip": false
+    }
+  }
+}

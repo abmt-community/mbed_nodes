@@ -1,0 +1,47 @@
+{
+  "model_is_node": false,
+  "nodes": [
+    {
+      "name": "mpu_i2c_sensor",
+      "type": "class",
+      "cfg": {
+        "class": "mpu_i2c_sensor",
+        "prj": "io",
+        "enable_magnetometer": false,
+        "use_alternate_address": false
+      },
+      "pos": {
+        "x": -137,
+        "y": -156
+      },
+      "rotate": false,
+      "comment_out": false,
+      "inputs": {
+        "i2c_bus": {
+          "node": "i2c",
+          "pin": "i2c_bus"
+        }
+      },
+      "default_values": {
+        "i2c_bus": ""
+      }
+    },
+    {
+      "name": "i2c",
+      "type": "class",
+      "cfg": {
+        "class": "i2c",
+        "prj": "mbed_nodes",
+        "baudrate": "400000",
+        "pin_sda": "I2C_SDA",
+        "pin_scl": "I2C_SCL"
+      },
+      "pos": {
+        "x": -476,
+        "y": -152
+      },
+      "rotate": false,
+      "comment_out": false
+    }
+  ]
+}

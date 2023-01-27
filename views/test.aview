@@ -1,0 +1,67 @@
+{
+  "type": "list",
+  "elements": [
+    {
+      "signals": [
+        "expr.out",
+        "expr.a",
+        "interrupt_pin.count",
+        "counter.out"
+      ],
+      "type": "scope",
+      "time_range": 10,
+      "y_max": "auto",
+      "y_min": "auto",
+      "width": 1517,
+      "height": 519
+    },
+    {
+      "signals": [
+        "mbed_cpu_load.yield_ticks"
+      ],
+      "type": "scope",
+      "time_range": 10,
+      "y_max": "auto",
+      "y_min": "auto",
+      "width": 1517,
+      "height": 150
+    },
+    {
+      "type": "display",
+      "display_name": true,
+      "num_digets": "3",
+      "signal": "mbed_meminfo.heap_free",
+      "width": 1517,
+      "height": 25
+    },
+    {
+      "type": "display",
+      "display_name": true,
+      "num_digets": "3",
+      "signal": "mbed_meminfo.heap_used",
+      "width": 1517,
+      "height": 25
+    },
+    {
+      "type": "display",
+      "display_name": true,
+      "num_digets": "3",
+      "signal": "mbed_meminfo.max_stack_mem_used",
+      "width": 1517,
+      "height": 25
+    },
+    {
+      "signals": [
+        "mbed_cpu_load.load"
+      ],
+      "type": "scope",
+      "time_range": 10,
+      "y_max": "auto",
+      "y_min": "auto",
+      "width": 1517,
+      "height": 150
+    }
+  ],
+  "width": 1517,
+  "height": 904
+}
