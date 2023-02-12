@@ -19,7 +19,7 @@ struct interrupt_pin{
     InterruptIn* pin;
     EventFlags isr_flags;
     volatile uint32_t count = 0;
-    volatile bool read_for_irq = true;
+    volatile bool ready_for_irq = true;
     
     void init();
     bool poll();
