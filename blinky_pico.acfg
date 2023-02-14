@@ -1,0 +1,20 @@
+{
+  "model": "blinky",
+  "runtime": "mbed",
+  "runtime_configs": {
+    "mbed": {
+      "target": "RASPBERRY_PI_PICO",
+      "toolchain_path": "/opt/gcc-arm-none-eabi-latest/bin",
+      "flash_command": "pyocd flash BUILD/$TARGET/GCC_ARM/*.elf -e chip -t rp2040",
+      "dl_mbed": "https://github.com/arduino/mbed-os/archive/refs/heads/extrapatches-6.16.0.zip",
+      "raster_stack_size": "2048",
+      "serial_port": "/dev/ttyACM0",
+      "serial_baudrate": "115200",
+      "serial_pin_tx": "p0",
+      "serial_pin_rx": "p1",
+      "use_usb": true,
+      "usb_device_num": "0",
+      "skip": false
+    }
+  }
+}
