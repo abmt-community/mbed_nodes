@@ -406,7 +406,7 @@
           "pin": "out"
         },
         "b": {
-          "node": "rcv_json",
+          "node": "ble_json_parser",
           "pin": "out"
         },
         "g": {
@@ -418,29 +418,6 @@
         "r": "",
         "b": "",
         "g": ""
-      }
-    },
-    {
-      "name": "rcv_json",
-      "type": "class",
-      "cfg": {
-        "class": "rcv_json",
-        "prj": "mbed_test"
-      },
-      "pos": {
-        "x": 334,
-        "y": 179
-      },
-      "rotate": false,
-      "comment_out": false,
-      "inputs": {
-        "in": {
-          "node": "ble",
-          "pin": "out"
-        }
-      },
-      "default_values": {
-        "in": ""
       }
     },
     {
@@ -463,6 +440,29 @@
       "inputs": {
         "in": {
           "node": "create_json",
+          "pin": "out"
+        }
+      },
+      "default_values": {
+        "in": ""
+      }
+    },
+    {
+      "name": "ble_json_parser",
+      "type": "class",
+      "cfg": {
+        "class": "ble_json_parser",
+        "prj": "mbed_nodes"
+      },
+      "pos": {
+        "x": 263,
+        "y": 196
+      },
+      "rotate": false,
+      "comment_out": false,
+      "inputs": {
+        "in": {
+          "node": "ble",
           "pin": "out"
         }
       },

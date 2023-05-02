@@ -1,5 +1,5 @@
-#ifndef MBED_TEST_BLE_H
-#define MBED_TEST_BLE_H MBED_TEST_BLE_H
+#ifndef MBED_NODES_BLE_H
+#define MBED_NODES_BLE_H MBED_NODES_BLE_H
 
 #include <string>
 #include "mbed.h"
@@ -34,5 +34,4 @@ struct ble{
 
 } // namespace mbed_test
 
-#endif // MBED_TEST_BLE_H
-auto
+#endif // MBED_NODES_BLE_H

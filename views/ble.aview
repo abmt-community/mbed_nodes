@@ -5,7 +5,7 @@
       "type": "display",
       "display_name": true,
       "num_digets": "3",
-      "width": 1479,
+      "width": 1517,
       "height": 25,
       "signal": "create_json.json_to_string.out"
     },
@@ -13,8 +13,8 @@
       "type": "display",
       "display_name": true,
       "num_digets": "3",
-      "signal": "rcv_json.out",
-      "width": 1479,
+      "signal": "ble_json_parser.out",
+      "width": 1517,
       "height": 25
     },
     {
@@ -22,10 +22,10 @@
       "display_name": true,
       "num_digets": "3",
       "signal": "ble.connected",
-      "width": 1479,
+      "width": 1517,
       "height": 25
     }
   ],
-  "width": 1479,
+  "width": 1517,
   "height": 852
 }
