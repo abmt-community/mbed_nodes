@@ -30,4 +30,3 @@ struct gpio_input{
 } // namespace mbed_nodes
 
 #endif // MBED_NODES_GPIO_H
-auto
