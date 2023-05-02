@@ -1,0 +1,75 @@
+{
+  "model": "ble",
+  "runtime": "mbed",
+  "runtime_configs": {
+    "nrf51": {
+      "target": "NRF51_DK",
+      "toolchain_path": "/opt/gcc-arm-none-eabi-latest/bin",
+      "flash_command": "openocd -f /usr/share/openocd/scripts/interface/stlink.cfg -f /usr/share/openocd/scripts/target/nrf51.cfg -c 'init; halt; nrf51 mass_erase; program ./BUILD/NRF51_DK/GCC_ARM/build-nrf-nrf51.hex; reset; exit;'",
+      "dl_mbed": "https://api.github.com/repos/ARMmbed/mbed-os/tarball/mbed-os-5.15.9",
+      "usb_device_num": "0",
+      "raster_stack_size": "1024",
+      "serial_port": "/dev/ttyACM0",
+      "serial_baudrate": "115200",
+      "use_usb": false
+    },
+    "mbed": {
+      "target": "NRF52840_DK",
+      "flash_command": "pyocd flash -t nrf52840 -e chip _ELF_FILE_",
+      "dl_mbed": "https://github.com/arduino/mbed-os/archive/refs/heads/extrapatches-6.17.0.zip",
+      "dl_toolchain": "https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2",
+      "raster_stack_size": "2048",
+      "serial_port": "/dev/ttyACM0",
+      "serial_baudrate": "115200",
+      "serial_pin_tx": "P1_11",
+      "serial_pin_rx": "P1_12",
+      "use_usb": false,
+      "usb_device_num": "0",
+      "lto": false,
+      "skip": false
+    },
+    "mbed_tickless": {
+      "target": "NRF52840_DK",
+      "flash_command": "pyocd flash -t nrf52840 -e chip _ELF_FILE_",
+      "dl_mbed": "https://github.com/arduino/mbed-os/archive/refs/heads/extrapatches-6.17.0.zip",
+      "dl_toolchain": "https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2",
+      "raster_stack_size": "1024",
+      "serial_port": "/dev/ttyACM0",
+      "serial_baudrate": "115200",
+      "serial_pin_tx": "P1_11",
+      "serial_pin_rx": "P1_12",
+      "use_usb": false,
+      "usb_device_num": "0",
+      "lto": false,
+      "skip": false
+    },
+    "mbed_bm": {
+      "target": "NRF52840_DK",
+      "flash_command": "pyocd flash -t nrf52840 -e chip _ELF_FILE_",
+      "dl_mbed": "https://github.com/arduino/mbed-os/archive/refs/heads/extrapatches-6.17.0.zip",
+      "dl_toolchain": "https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2",
+      "serial_port": "/dev/ttyACM0",
+      "serial_baudrate": "115200",
+      "serial_pin_tx": "NC",
+      "serial_pin_rx": "P1_12",
+      "use_usb": false,
+      "usb_device_num": "0",
+      "lto": false,
+      "skip": false
+    },
+    "mbed_bm_rtc": {
+      "target": "BLUE_PILL",
+      "flash_command": "pyocd flash -t stm32f103rc -e chip _ELF_FILE_",
+      "dl_mbed": "https://api.github.com/repos/ARMmbed/mbed-os/tarball/mbed-os-6.16.0",
+      "dl_toolchain": "https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2",
+      "serial_port": "/dev/ttyACM0",
+      "serial_baudrate": "115200",
+      "serial_pin_tx": "NC",
+      "serial_pin_rx": "CONSOLE_RX",
+      "use_usb": false,
+      "usb_device_num": "0",
+      "lto": false,
+      "skip": false
+    }
+  }
+}

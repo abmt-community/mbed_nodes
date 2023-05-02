@@ -1,0 +1,474 @@
+{
+  "model_is_node": false,
+  "nodes": [
+    {
+      "name": "counter",
+      "type": "class",
+      "cfg": {
+        "class": "counter",
+        "prj": "math",
+        "start": "0",
+        "end": "1",
+        "step": "0.1",
+        "auto_restart": true
+      },
+      "pos": {
+        "x": -287,
+        "y": 22
+      },
+      "rotate": false,
+      "comment_out": false,
+      "raster": "100ms"
+    },
+    {
+      "name": "expression",
+      "type": "expression",
+      "cfg": {
+        "function": "a < 0.3",
+        "output_name": "out",
+        "output_type": "auto",
+        "type_header": "",
+        "disable_output": false
+      },
+      "pos": {
+        "x": 343,
+        "y": 12
+      },
+      "rotate": false,
+      "comment_out": false,
+      "inputs": {
+        "a": {
+          "node": "counter",
+          "pin": "out"
+        }
+      },
+      "default_values": {
+        "a": ""
+      }
+    },
+    {
+      "name": "create_json",
+      "type": "base",
+      "cfg": {
+        "node": "subsystem",
+        "nodes": [
+          {
+            "name": "counter",
+            "type": "class",
+            "cfg": {
+              "class": "counter",
+              "prj": "math",
+              "start": "0",
+              "end": "100",
+              "step": "1",
+              "auto_restart": true
+            },
+            "pos": {
+              "x": 230,
+              "y": 20
+            },
+            "rotate": false,
+            "comment_out": false,
+            "raster": "1s"
+          },
+          {
+            "name": "expression_1",
+            "type": "expression",
+            "cfg": {
+              "function": "{{\"cnt\", cnt}}",
+              "output_name": "out",
+              "output_type": "abmt::json",
+              "type_header": "abmt/json.h",
+              "disable_output": false
+            },
+            "pos": {
+              "x": 540,
+              "y": 2
+            },
+            "rotate": false,
+            "comment_out": false,
+            "inputs": {
+              "cnt": {
+                "node": "counter",
+                "pin": "out"
+              }
+            },
+            "default_values": {
+              "cnt": ""
+            }
+          },
+          {
+            "name": "json_to_string",
+            "type": "expression",
+            "cfg": {
+              "function": "json.dump().append(\"\\n\\n\")",
+              "output_name": "out",
+              "output_type": "std::string",
+              "type_header": "string",
+              "disable_output": false
+            },
+            "pos": {
+              "x": 872,
+              "y": 4
+            },
+            "rotate": false,
+            "comment_out": false,
+            "inputs": {
+              "json": {
+                "node": "expression_1",
+                "pin": "out"
+              }
+            },
+            "default_values": {
+              "json": ""
+            }
+          },
+          {
+            "name": "rt",
+            "type": "base",
+            "cfg": {
+              "node": "rt",
+              "data_type": "std::string",
+              "start_value": "\"{}\"",
+              "type_header": ""
+            },
+            "pos": {
+              "x": 1271,
+              "y": 20
+            },
+            "rotate": false,
+            "comment_out": false,
+            "inputs": {
+              "in": {
+                "node": "json_to_string",
+                "pin": "out"
+              }
+            },
+            "default_values": {
+              "in": ""
+            }
+          },
+          {
+            "name": "out",
+            "type": "base",
+            "cfg": {
+              "node": "output",
+              "name": "out"
+            },
+            "pos": {
+              "x": 1488,
+              "y": 20
+            },
+            "rotate": false,
+            "comment_out": false,
+            "inputs": {
+              "in": {
+                "node": "rt",
+                "pin": "out"
+              }
+            },
+            "default_values": {
+              "in": ""
+            }
+          }
+        ],
+        "view": {
+          "scale": 0.5,
+          "trans": {
+            "x": 25,
+            "y": 35
+          }
+        }
+      },
+      "pos": {
+        "x": -293,
+        "y": 354
+      },
+      "rotate": false,
+      "comment_out": false
+    },
+    {
+      "name": "output",
+      "type": "base",
+      "cfg": {
+        "node": "subsystem",
+        "nodes": [
+          {
+            "name": "r",
+            "type": "base",
+            "cfg": {
+              "node": "input",
+              "name": "in"
+            },
+            "pos": {
+              "x": 19,
+              "y": 187
+            },
+            "rotate": false,
+            "comment_out": false
+          },
+          {
+            "name": "b",
+            "type": "base",
+            "cfg": {
+              "node": "input",
+              "name": "out_1"
+            },
+            "pos": {
+              "x": 10,
+              "y": 465
+            },
+            "rotate": false,
+            "comment_out": false
+          },
+          {
+            "name": "g",
+            "type": "base",
+            "cfg": {
+              "node": "input",
+              "name": "out_2"
+            },
+            "pos": {
+              "x": 18,
+              "y": 307
+            },
+            "rotate": false,
+            "comment_out": false
+          },
+          {
+            "name": "led_r",
+            "type": "class",
+            "cfg": {
+              "class": "gpio_output",
+              "prj": "mbed_nodes",
+              "pin": "P0_26"
+            },
+            "pos": {
+              "x": 468,
+              "y": 188
+            },
+            "rotate": false,
+            "comment_out": false,
+            "inputs": {
+              "in": {
+                "node": "not",
+                "pin": "out"
+              }
+            },
+            "default_values": {
+              "in": ""
+            }
+          },
+          {
+            "name": "led_g",
+            "type": "class",
+            "cfg": {
+              "class": "gpio_output",
+              "prj": "mbed_nodes",
+              "pin": "P0_30"
+            },
+            "pos": {
+              "x": 469,
+              "y": 307
+            },
+            "rotate": false,
+            "comment_out": false,
+            "inputs": {
+              "in": {
+                "node": "not_1",
+                "pin": "out"
+              }
+            },
+            "default_values": {
+              "in": ""
+            }
+          },
+          {
+            "name": "led_b",
+            "type": "class",
+            "cfg": {
+              "class": "gpio_output",
+              "prj": "mbed_nodes",
+              "pin": "P0_6"
+            },
+            "pos": {
+              "x": 470,
+              "y": 465
+            },
+            "rotate": false,
+            "comment_out": false,
+            "inputs": {
+              "in": {
+                "node": "not_2",
+                "pin": "out"
+              }
+            },
+            "default_values": {
+              "in": ""
+            }
+          },
+          {
+            "name": "not",
+            "type": "expression",
+            "cfg": {
+              "function": "! b",
+              "output_name": "out",
+              "output_type": "auto",
+              "type_header": "",
+              "disable_output": false
+            },
+            "pos": {
+              "x": 227,
+              "y": 187
+            },
+            "rotate": false,
+            "comment_out": false,
+            "inputs": {
+              "b": {
+                "node": "r",
+                "pin": "out"
+              }
+            },
+            "default_values": {
+              "b": ""
+            }
+          },
+          {
+            "name": "not_1",
+            "type": "expression",
+            "cfg": {
+              "function": "! b",
+              "output_name": "out",
+              "output_type": "auto",
+              "type_header": "",
+              "disable_output": false
+            },
+            "pos": {
+              "x": 206,
+              "y": 308
+            },
+            "rotate": false,
+            "comment_out": false,
+            "inputs": {
+              "b": {
+                "node": "g",
+                "pin": "out"
+              }
+            },
+            "default_values": {
+              "b": ""
+            }
+          },
+          {
+            "name": "not_2",
+            "type": "expression",
+            "cfg": {
+              "function": "! b",
+              "output_name": "out",
+              "output_type": "auto",
+              "type_header": "",
+              "disable_output": false
+            },
+            "pos": {
+              "x": 206,
+              "y": 467
+            },
+            "rotate": false,
+            "comment_out": false,
+            "inputs": {
+              "b": {
+                "node": "b",
+                "pin": "out"
+              }
+            },
+            "default_values": {
+              "b": ""
+            }
+          }
+        ],
+        "view": {
+          "scale": 0.5,
+          "trans": {
+            "x": 25,
+            "y": 35
+          }
+        }
+      },
+      "pos": {
+        "x": 840,
+        "y": 141
+      },
+      "rotate": false,
+      "comment_out": false,
+      "inputs": {
+        "r": {
+          "node": "expression",
+          "pin": "out"
+        },
+        "b": {
+          "node": "rcv_json",
+          "pin": "out"
+        },
+        "g": {
+          "node": "ble",
+          "pin": "connected"
+        }
+      },
+      "default_values": {
+        "r": "",
+        "b": "",
+        "g": ""
+      }
+    },
+    {
+      "name": "rcv_json",
+      "type": "class",
+      "cfg": {
+        "class": "rcv_json",
+        "prj": "mbed_test"
+      },
+      "pos": {
+        "x": 334,
+        "y": 179
+      },
+      "rotate": false,
+      "comment_out": false,
+      "inputs": {
+        "in": {
+          "node": "ble",
+          "pin": "out"
+        }
+      },
+      "default_values": {
+        "in": ""
+      }
+    },
+    {
+      "name": "ble",
+      "type": "class",
+      "cfg": {
+        "class": "ble",
+        "prj": "mbed_nodes",
+        "name": "ABMT-BLE",
+        "service_uuid": "0xA000",
+        "rcv_uuid": "0xA001",
+        "snd_uuid": "0xA002"
+      },
+      "pos": {
+        "x": 58,
+        "y": 354
+      },
+      "rotate": false,
+      "comment_out": false,
+      "inputs": {
+        "in": {
+          "node": "create_json",
+          "pin": "out"
+        }
+      },
+      "default_values": {
+        "in": ""
+      }
+    }
+  ]
+}

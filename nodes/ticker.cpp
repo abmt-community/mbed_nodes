@@ -1,7 +1,5 @@
 #include "ticker.h"
 
-#include "../../../bare_metall_loop.h"
-
 using namespace std;
 using namespace mbed_nodes;
 
@@ -12,7 +10,6 @@ void ticker::init(){
     ticker->attach_us( [this]{
         out_count++;
         isr_flags.set(1);
-        bare_metall_trigger_main_loop();
     },param_period_us);
     
 }

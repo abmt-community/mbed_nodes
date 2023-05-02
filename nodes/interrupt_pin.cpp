@@ -1,6 +1,5 @@
 #include "interrupt_pin.h"
 
-#include "../../../bare_metall_loop.h"
 
 using namespace std;
 using namespace mbed_nodes;
@@ -15,7 +14,6 @@ void interrupt_pin::init(){
             if(ready_for_irq){
                 isr_flags.set(1);
                 ready_for_irq = false;
-                bare_metall_trigger_main_loop();
             }
         });
     }
@@ -26,7 +24,6 @@ void interrupt_pin::init(){
             if(ready_for_irq){
                 isr_flags.set(1);
                 ready_for_irq = false;
-                bare_metall_trigger_main_loop();
             }
         });
     }

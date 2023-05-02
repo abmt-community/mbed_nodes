@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ABMT-BLE example</title>  
+</head>
+
+<body>
+
+<h3>Control:</h3>
+<form>
+  <input type="button" onclick="on_connect()" value="connect" />
+  <input type="button" onclick="on_setled()" value="set_led" />
+</form>
+
+<h3>Last data:</h3>
+<pre id="last_data"></pre>
+
+<h3>Console:</h3>
+<pre id="console"></pre>
+
+
+<script>
+  var mtu = 60;
+  var led = false;
+  var serviceUuid = parseInt("0xA000");
+  var snd_characteristicUuid = parseInt("0xA001");
+  var rcv_characteristicUuid = parseInt("0xA002");
+  var device_name_prefix = "ABMT-BLE";
+  var snd_characteristic = null;
+  var rcv_buffer = "";
+  var console = document.querySelector('#console');
+  var last_data = document.querySelector('#last_data');
+
+  function log(str){
+    console.textContent += str + '\n';
+  }
+
+  async function on_connect() {
+    document.querySelector('#console').textContent
+    if ( ! navigator.bluetooth ) {
+      log('Your browser does not support Bluetooth or you may have to activate it...');
+      return;
+    }
+    try {
+        log('open device...');
+        const device = await navigator.bluetooth.requestDevice({
+            filters: [{namePrefix: device_name_prefix}],
+            optionalServices: [serviceUuid]
+        });
+
+        log('connect to device...');
+        const server = await device.gatt.connect();
+
+        log('open service...');
+        const service = await server.getPrimaryService(serviceUuid);
+
+        log('open characteristic...');
+        snd_characteristic = await service.getCharacteristic(snd_characteristicUuid);
+        const rcv_characteristic = await service.getCharacteristic(rcv_characteristicUuid);
+        await rcv_characteristic.startNotifications();
+        rcv_characteristic.addEventListener('characteristicvaluechanged', on_notification);
+      } catch(error) {
+        log('error: ' + error);
+      }
+  }
+
+  function on_notification(event) {
+    let value = event.target.value;
+    var dec = new TextDecoder("utf-8");
+    rcv_txt = dec.decode(value);
+    rcv_buffer += rcv_txt;
+    //log('rcv: ' + rcv_txt);
+    var pos = 1;
+      while(pos > 0){
+          pos = rcv_buffer.indexOf("\n\n");
+          if(pos > 0 ){
+              try{
+                on_new_json( JSON.parse( rcv_buffer.substring(0,pos) ) );
+                // do something
+              }catch(e){
+                log("error parsing json")
+              }
+              log("rcv: " + rcv_buffer.substring(0,pos));
+              rcv_buffer = rcv_buffer.slice(pos + 2);
+          }
+      }
+  }
+
+  function on_new_json(j){
+    last_data.textContent = JSON.stringify(j, null, 3);
+  }
+
+  async function on_setled(){
+    led = !led;
+
+    if(snd_characteristic != undefined && snd_characteristic != null){
+      var obj = {}
+      obj.out = led ? 1:0;
+      var text_enc = new TextEncoder("utf-8");
+      var str = JSON.stringify(obj);
+      var str_to_send = str + "\n\n";
+      while(str_to_send.length > 0){
+        if(str_to_send.length > mtu){
+          await snd_characteristic.writeValue(text_enc.encode(str_to_send.substring(0,mtu)));
+          str_to_send = str_to_send.slice(mtu);
+        }else{
+          await snd_characteristic.writeValue(text_enc.encode(str_to_send))
+          str_to_send = "";
+        }
+      }
+      log("snd: " + str)
+    }
+  }
+</script>
+
+</body>
+</html>
