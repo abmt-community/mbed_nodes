@@ -15,7 +15,7 @@
         "sizes": "512x512"
       }
     ],
-    "display": "fullscreen",
+    "display": "standalone",
     "prefer_related_applications": false,
     "start_url": "https://abmt-community.github.io/mbed_nodes/ble_app"
   }
