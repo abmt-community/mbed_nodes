@@ -1,0 +1,21 @@
+{
+    "short_name": "ABMT-BLE",
+    "name": "ABMT-BLE",
+    "description": "abmt ble example",
+    "icons": [
+
+      {
+        "src": "logo_192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "logo_512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "display": "fullscreen",
+    "prefer_related_applications": false,
+    "start_url": "https://abmt-community.github.io/mbed_nodes/"
+  }
