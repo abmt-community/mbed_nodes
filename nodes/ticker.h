@@ -1,7 +1,13 @@
+/**
+ * Author: Hendrik van Arragon, 2023
+ * SPDX-License-Identifier: MIT
+ */
+
 #ifndef MBED_NODES_TICKER_H
 #define MBED_NODES_TICKER_H MBED_NODES_TICKER_H
 
 #include "mbed.h"
+#include <abmt/time.h>
 
 namespace mbed_nodes{
     
@@ -17,7 +23,7 @@ struct ticker{
     EventFlags isr_flags;
     
     void init();
-    bool poll();
+    abmt::time poll();
 };
 
 

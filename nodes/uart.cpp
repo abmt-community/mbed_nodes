@@ -1,3 +1,8 @@
+/**
+ * Author: Hendrik van Arragon, 2023
+ * SPDX-License-Identifier: MIT
+ */
+
 #include "uart.h"
 
 using namespace std;

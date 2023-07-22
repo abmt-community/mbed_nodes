@@ -1,3 +1,7 @@
+/**
+ * Author: Hendrik van Arragon, 2023
+ * SPDX-License-Identifier: MIT
+ */
 #include "ble_json_parser.h"
 
 using namespace std;

@@ -1,3 +1,8 @@
+/**
+ * Author: Hendrik van Arragon, 2023
+ * SPDX-License-Identifier: MIT
+ */
+
 #include "ticker.h"
 
 using namespace std;
@@ -14,8 +19,8 @@ void ticker::init(){
     
 }
 
-bool ticker::poll(){
+abmt::time ticker::poll(){
     isr_flags.wait_any(1);
     isr_flags.clear(1);
-    return true;
+    return 0;
 }

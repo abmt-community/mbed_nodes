@@ -1,4 +1,8 @@
-#include "analog_output.h"
+#/**
+ * Author: Hendrik van Arragon, 2023
+ * SPDX-License-Identifier: MIT
+ */
+include "analog_output.h"
 
 using namespace std;
 using namespace mbed_nodes;

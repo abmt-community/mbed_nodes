@@ -1,10 +1,14 @@
+/**
+ * Author: Hendrik van Arragon, 2023
+ * SPDX-License-Identifier: MIT
+ */
 #ifndef MBED_NODES_BLE_H
 #define MBED_NODES_BLE_H MBED_NODES_BLE_H
 
 #include <string>
 #include "mbed.h"
 
-namespace mbed_test{
+namespace mbed_nodes{
 
 //@node: auto
 struct ble{
@@ -32,6 +36,6 @@ struct ble{
     void tick();
 };
 
-} // namespace mbed_test
+} // namespace mbed_nodes
 
 #endif // MBED_NODES_BLE_H

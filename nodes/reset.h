@@ -1,3 +1,8 @@
+/**
+ * Author: Hendrik van Arragon, 2023
+ * SPDX-License-Identifier: MIT
+ */
+
 #ifndef MBED_NODES_RESET_H
 #define MBED_NODES_RESET_H MBED_NODES_RESET_H
 

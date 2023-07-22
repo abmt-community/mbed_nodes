@@ -1,3 +1,7 @@
+/**
+ * Author: Hendrik van Arragon, 2023
+ * SPDX-License-Identifier: MIT
+ */
 #include "control.h"
 
 using namespace std;

@@ -1,3 +1,7 @@
+/**
+ * Author: Hendrik van Arragon, 2023
+ * SPDX-License-Identifier: MIT
+ */
 #ifndef MBED_NODES_BLE_JSON_PARSER_H
 #define MBED_NODES_BLE_JSON_PARSER_H MBED_NODES_BLE_JSON_PARSER_H
 

@@ -1,7 +1,13 @@
+/**
+ * Author: Hendrik van Arragon, 2023
+ * SPDX-License-Identifier: MIT
+ */
+
 #ifndef MBED_NODES_INTERRUPT_PIN_H
 #define MBED_NODES_INTERRUPT_PIN_H MBED_NODES_INTERRUPT_PIN_H
 
 #include "mbed.h"
+#include <abmt/time.h>
 
 namespace mbed_nodes{
 
@@ -14,7 +20,10 @@ struct interrupt_pin{
     PinMode param_pin_mode = PullDefault;
     bool param_on_rising_edge  = true;
     bool param_on_falling_edge = false;
-    osPriority_t param_priority = osPriorityNormal2;
+
+    uint32_t param_wait_time_ms  = 1000;
+    uint32_t param_sleep_time_ms = 0;
+    abmt::time sleep_time = 1;
     
     InterruptIn* pin;
     EventFlags isr_flags;
@@ -22,7 +31,7 @@ struct interrupt_pin{
     volatile bool ready_for_irq = true;
     
     void init();
-    bool poll();
+    abmt::time poll();
     
 };
 

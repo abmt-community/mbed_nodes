@@ -1,3 +1,7 @@
+/**
+ * Author: Hendrik van Arragon, 2023
+ * SPDX-License-Identifier: MIT
+ */
 #include "ble.h"
 
 #include <abmt/os.h>
@@ -7,7 +11,7 @@
 #include "ble_process.h"
 
 using namespace std;
-using namespace mbed_test;
+using namespace mbed_nodes;
 
 struct ble_com: ble::GattServer::EventHandler{
     std::string received_data = "";
