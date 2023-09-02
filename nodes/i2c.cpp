@@ -38,7 +38,7 @@ struct i2c_bus_mbed: public abmt::io::i2c{
 		    return true;
 		}
 		if( last_err_send + abmt::time::sec(3) < abmt::time::now() ){
-		    abmt::os::log("I2C: unable to connect to id " + std::to_string(addr) + " [dec].");
+		    abmt::log("I2C: unable to connect to id " + std::to_string(addr) + " [dec].");
 		    last_err_send = abmt::time::now();
 		}
 		return false;
