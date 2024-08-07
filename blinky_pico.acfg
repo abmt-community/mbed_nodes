@@ -14,7 +14,10 @@
       "serial_pin_rx": "p1",
       "use_usb": true,
       "usb_device_num": "0",
-      "skip": false
+      "skip": false,
+      "dou_mbed": "https://api.github.com/repos/ARMmbed/mbed-os/tarball/mbed-os-6.16.0",
+      "dou_toolchain": "https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2",
+      "lto": false
     }
   }
 }

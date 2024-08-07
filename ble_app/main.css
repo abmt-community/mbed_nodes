@@ -1,0 +1,10 @@
+:root {
+    font-family: Helvetica, Arial, sans-serif;
+    max-width: 70ch;
+    padding: 3em 1em;
+    margin: auto;
+    line-height: 1.75;
+    font-size: 1.25em;
+    background: #151515;
+	color: #858585;
+}

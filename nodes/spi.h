@@ -18,7 +18,8 @@ struct spi{
 	PinName param_pin_miso = NC;
 	PinName param_pin_sck  = NC;
 	int param_baudrate = 1000000;
-	int param_mode = 0; /// bit1 = pol, bit2 = pah; google
+	int param_mode = 0; /// bit1 = pol, bit0 = pah; google
+
 	
 	
 	abmt::io::spi_ptr out_spi_bus;
